@@ -9,13 +9,13 @@
   <meta property="og:title" content="Coaching Montagne – Prépare tes objectifs" />
   <meta property="og:description" content="Programmes personnalisés : Mont Blanc, Grandes Randonnées, Trail PRO." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://source.unsplash.com/1200x630/?alps,mont-blanc" />
+  <meta property="og:image" content="https://www.maxence-test.fr/images/accueil-montagne.webp" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Styles & Script -->
+  <!-- Styles -->
   <link rel="stylesheet" href="./style.css" />
 </head>
 <body class="bg-white text-gray-800 antialiased" id="top">
@@ -53,31 +53,32 @@
             <a href="#offres" class="px-7 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-soft text-base md:text-lg">Voir les packs</a>
             <a href="#contact" class="px-7 py-4 rounded-2xl border border-gray-300 hover:border-emerald-600 text-gray-800 font-semibold text-base md:text-lg">Parler de mon objectif</a>
           </div>
+
+          <!-- Réassurance (marge au-dessus augmentée) -->
+          <div class="mt-16 mb-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="rounded-2xl p-4 bg-white border border-gray-200 text-center">
+              <p class="text-sm text-gray-500">Bilan initial complet</p>
+              <p class="text-base font-bold text-gray-900">Physique • Technique • Matériel</p>
+            </div>
+            <div class="rounded-2xl p-4 bg-white border border-gray-200 text-center">
+              <p class="text-sm text-gray-500">Suivi & feedback</p>
+              <p class="text-base font-bold text-gray-900">Hebdo via appli</p>
+            </div>
+            <div class="rounded-2xl p-4 bg-white border border-gray-200 text-center">
+              <p class="text-sm text-gray-500">Séances</p>
+              <p class="text-base font-bold text-gray-900">Terrain ou distance</p>
+            </div>
+            <div class="rounded-2xl p-4 bg-white border border-gray-200 text-center">
+              <p class="text-sm text-gray-500">Sécurité</p>
+              <p class="text-base font-bold text-gray-900">Théorie & gestion du risque</p>
+            </div>
+          </div>
         </div>
 
         <!-- Colonne image avec dégradé à gauche -->
-        <div class="hero-media rounded-3xl shadow-soft overflow-hidden">
-          <img src="./images/accueil-montagne.webp" alt="Vue sur la montagne" class="hero-img" />
-        </div>
-      </div>
-
-      <!-- Réassurance : 4 vignettes sous l'image -->
-      <div class="reassurance grid gap-4 mt-6 md:mt-2">
-        <div class="reassurance-card">
-          <p class="text-sm text-gray-500">Bilan initial complet</p>
-          <p class="text-base md:text-lg font-bold text-gray-900">Physique • Technique • Matériel</p>
-        </div>
-        <div class="reassurance-card">
-          <p class="text-sm text-gray-500">Suivi & feedback</p>
-          <p class="text-base md:text-lg font-bold text-gray-900">Hebdo via appli</p>
-        </div>
-        <div class="reassurance-card">
-          <p class="text-sm text-gray-500">Séances</p>
-          <p class="text-base md:text-lg font-bold text-gray-900">Terrain ou distance</p>
-        </div>
-        <div class="reassurance-card">
-          <p class="text-sm text-gray-500">Sécurité</p>
-          <p class="text-base md:text-lg font-bold text-gray-900">Théorie & gestion du risque</p>
+        <div class="relative rounded-3xl shadow-soft overflow-hidden">
+          <div class="absolute inset-0 bg-gradient-to-l from-white via-white/60 to-transparent z-10"></div>
+          <img src="./images/accueil-montagne.webp" alt="Vue sur la montagne" class="w-full h-full object-cover" />
         </div>
       </div>
     </div>
@@ -91,11 +92,14 @@
 
       <div class="mt-10 grid md:grid-cols-3 gap-6">
         <!-- Pack Mont Blanc -->
-        <article class="rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-soft">
-          <img src="./images/sommet-mont-blanc.jpg" alt="Vue sur la montagne" style="max-width:100%; height:auto;" />
-          <div class="p-6">
+        <article class="rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-soft flex flex-col">
+          <!-- Image harmonisée : même hauteur, coins arrondis en haut uniquement -->
+          <div class="h-56 md:h-60 overflow-hidden">
+            <img src="./images/sommet-mont-blanc.jpg" alt="Objectif Mont Blanc" class="w-full h-full object-cover rounded-t-3xl" />
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
             <h3 class="text-2xl font-bold text-gray-900">Pack Sommet <span class="text-emerald-700">Mont&nbsp;Blanc</span></h3>
-            <p class="mt-2 text-gray-700 text-sm">Prépa complète pour une <strong>fenêtre d'ascension</strong> de 3 à 5 jours : physique, technique, nutrition et théorie montagne (météo, risque, matériel).</p>
+            <p class="mt-2 text-gray-700 text-sm flex-1">Prépa complète pour une <strong>fenêtre d'ascension</strong> de 3 à 5 jours : physique, technique, nutrition et théorie montagne (météo, risque, matériel).</p>
             <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-gray-600">
               <li>Plan 12–16 semaines, 3 à 5 séances/sem.</li>
               <li>Renfo spécifique (quadris, fessiers, mollets, gainage)</li>
@@ -110,11 +114,13 @@
         </article>
 
         <!-- Pack Grande Randonnée -->
-        <article class="rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-soft">
-          <img src="./images/randonné-montagne.webp" alt="randonné en montagne" style="max-width:100%; height:auto;" />
-          <div class="p-6">
+        <article class="rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-soft flex flex-col">
+          <div class="h-56 md:h-60 overflow-hidden">
+            <img src="./images/randonné-montagne.webp" alt="Grande Randonnée" class="w-full h-full object-cover rounded-t-3xl" />
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
             <h3 class="text-2xl font-bold text-gray-900">Pack Rando<span class="text-emerald-700">+</span> – Grandes Randonnées</h3>
-            <p class="mt-2 text-gray-700 text-sm">Être prêt pour ton <strong>GR</strong> ou trek (2–15 jours) : renforcement ciblé, prévention des blessures et gestion des étapes, dénivelé et portage.</p>
+            <p class="mt-2 text-gray-700 text-sm flex-1">Être prêt pour ton <strong>GR</strong> ou trek (2–15 jours) : renforcement ciblé, prévention des blessures et gestion des étapes, dénivelé et portage.</p>
             <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-gray-600">
               <li>Plan 6–10 semaines, 3 séances/sem.</li>
               <li>Travail chevilles/genoux/dos + proprioception</li>
@@ -129,11 +135,13 @@
         </article>
 
         <!-- Pack Trail PRO -->
-        <article class="rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-soft">
-          <img src="./images/perf-chrono-montagne.webp" alt="Vue sur la montagne" style="max-width:100%; height:auto;" />
-          <div class="p-6">
+        <article class="rounded-3xl overflow-hidden bg-white border border-gray-200 shadow-soft flex flex-col">
+          <div class="h-56 md:h-60 overflow-hidden">
+            <img src="./images/perf-chrono-montagne.webp" alt="Trail PRO" class="w-full h-full object-cover rounded-t-3xl" />
+          </div>
+          <div class="p-6 flex-1 flex flex-col">
             <h3 class="text-2xl font-bold text-gray-900">Pack Trail <span class="text-emerald-700">PRO</span> – Perf/chrono</h3>
-            <p class="mt-2 text-gray-700 text-sm">Pour sportifs aguerris : cycles VMA, seuil/lactate, côtes, rando-course, renfo et stratégie. Analyse de charge et revue des données montre.</p>
+            <p class="mt-2 text-gray-700 text-sm flex-1">Pour sportifs aguerris : cycles VMA, seuil/lactate, côtes, rando-course, renfo et stratégie. Analyse de charge et revue des données montre.</p>
             <ul class="mt-4 space-y-2 text-sm list-disc list-inside text-gray-600">
               <li>Plan 8–12 semaines, 4 à 6 séances/sem.</li>
               <li>Tests terrain (VMA/FTP) & planification d'allure</li>
@@ -171,7 +179,7 @@
           </div>
         </div>
         <div class="relative">
-          <img src="./images/Lucilien-montagne.webp" alt="Vue sur la montagne" class="w-full h-auto rounded-3xl shadow-soft">
+          <img src="./images/Lucilien-montagne.webp" alt="Séance en montagne" class="w-full h-auto rounded-3xl shadow-soft">
         </div>
       </div>
     </div>
