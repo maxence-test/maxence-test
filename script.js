@@ -18,13 +18,13 @@
     });
   }, { rootMargin: '-30% 0px -60% 0px', threshold: 0.1 });
 
-  sections.forEach(sec => observer.observe(sec));
+  sections.forEach(sec => sec && observer.observe(sec));
 
-  // Smooth scroll offset already handled via CSS; ensure hash updates on click
+  // Smooth scroll and update hash
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       const href = link.getAttribute('href');
-      if (href.startsWith('#')) {
+      if (href && href.startsWith('#')) {
         const el = document.querySelector(href);
         if (el) {
           e.preventDefault();
