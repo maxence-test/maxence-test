@@ -252,31 +252,77 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-20 bg-gray-50 scroll-mt-28">
-    <div class="container mx-auto px-6 max-w-[1100px]">
-      <div class="grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Parle-moi de ton projet</h2>
-          <p class="mt-3 text-gray-700">Dis-moi où tu en es, ta dispo, et ton objectif. Je reviens vers toi sous 24h avec une proposition.</p>
-          <form class="mt-6 grid gap-4" onsubmit="event.preventDefault(); window.location.href='mailto:contact@example.com?subject=Coaching%20Montagne&body=Mon%20objectif%20:%20'">
-            <input required placeholder="Prénom" class="px-4 py-3 rounded-2xl bg-white border border-gray-300" />
-            <input required type="email" placeholder="Email" class="px-4 py-3 rounded-2xl bg-white border border-gray-300" />
-            <select class="px-4 py-3 rounded-2xl bg-white border border-gray-300">
-              <option>Pack Sommet Mont Blanc</option>
-              <option>Pack Rando+ – Grandes Randonnées</option>
-              <option>Pack Trail PRO – Perf/chrono</option>
-            </select>
-            <textarea rows="4" placeholder="Parle de ton niveau, tes dispos, ta date visée…" class="px-4 py-3 rounded-2xl bg-white border border-gray-300"></textarea>
-            <button class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold w-fit">Envoyer</button>
-          </form>
-          <p class="mt-4 text-sm text-gray-600">Ou écris directement à <a class="underline text-emerald-700" href="mailto:contact@example.com">contact@example.com</a></p>
-        </div>
-        <div>
-          <img src="https://source.unsplash.com/800x600/?alps,mountain,runner" alt="Trail en montagne" class="w-full h-auto rounded-3xl shadow-soft">
-        </div>
+<section id="contact" class="py-20 bg-gray-50 scroll-mt-28">
+  <div class="container mx-auto px-6 max-w-[1100px]">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900">Parle-moi de ton projet</h2>
+        <p class="mt-3 text-gray-700">Dis-moi où tu en es, ta dispo, et ton objectif. Je reviens vers toi sous 24h avec une proposition.</p>
+
+        <!-- Nouveau formulaire -->
+        <form id="contactForm" class="mt-6 grid gap-4">
+          <input name="name" required placeholder="Prénom" class="px-4 py-3 rounded-2xl bg-white border border-gray-300" />
+          <input type="email" name="email" required placeholder="Email" class="px-4 py-3 rounded-2xl bg-white border border-gray-300" />
+          <select name="pack" class="px-4 py-3 rounded-2xl bg-white border border-gray-300">
+            <option>Pack Sommet Mont Blanc</option>
+            <option>Pack Rando+ – Grandes Randonnées</option>
+            <option>Pack Trail PRO – Perf/chrono</option>
+          </select>
+          <textarea name="message" rows="4" required placeholder="Parle de ton niveau, tes dispos, ta date visée…" class="px-4 py-3 rounded-2xl bg-white border border-gray-300"></textarea>
+          <button type="submit" class="px-6 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold w-fit">Envoyer</button>
+          <p id="formResponse" class="text-sm mt-2"></p>
+        </form>
+
+        <p class="mt-4 text-sm text-gray-600">
+          Ou écris directement à
+          <a class="underline text-emerald-700" href="mailto:contact@example.com">contact@example.com</a>
+        </p>
+      </div>
+      <div>
+        <img src="https://source.unsplash.com/800x600/?alps,mountain,runner" alt="Trail en montagne" class="w-full h-auto rounded-3xl shadow-soft">
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Script pour gérer l'envoi AJAX -->
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const responseText = document.getElementById("formResponse");
+
+  const data = {
+    name: form.name.value,
+    email: form.email.value,
+    pack: form.pack.value,
+    message: form.message.value,
+  };
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json();
+    if (result.success) {
+      responseText.textContent = "✅ Message envoyé avec succès !";
+      responseText.className = "text-green-600 text-sm mt-2";
+      form.reset();
+    } else {
+      responseText.textContent = "❌ Erreur lors de l'envoi : " + result.error;
+      responseText.className = "text-red-600 text-sm mt-2";
+    }
+  } catch (err) {
+    responseText.textContent = "❌ Une erreur est survenue : " + err.message;
+    responseText.className = "text-red-600 text-sm mt-2";
+  }
+});
+</script>
+
 
   <!-- Footer -->
   <footer class="py-10 border-t border-gray-200 bg-white">
