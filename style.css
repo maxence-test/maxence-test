@@ -385,5 +385,40 @@ input:focus, select:focus, textarea:focus {
 @media (min-width: 1024px){
   .pill{ flex-basis: 270px; max-width: 320px; }
 }
+.pill {
+  display: flex;
+  flex-direction: row;      /* icône + texte sur la même ligne */
+  align-items: center;      /* centrage vertical */
+  justify-content: center;  /* centrage horizontal */
+  gap: .5rem;
+
+  background: #fff;
+  color: #1f2937;
+  padding: 1rem 1.25rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+
+  flex: 1 1 260px;
+  max-width: 300px;
+  box-sizing: border-box;
+  text-align: center;       /* centre le texte */
+}
+
+.pill-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.pill-text {
+  font-size: .95rem;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+.pill-text b {
+  font-size: 1rem;
+  color: #111827;
+}
 
 
