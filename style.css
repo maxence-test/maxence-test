@@ -332,5 +332,58 @@ input:focus, select:focus, textarea:focus {
   color: #111827; /* presque noir */
   margin-bottom: 0.2rem;
 }
+/* === Réassurance : centrage + retour à la ligne propre === */
+.reassurance-pills{
+  display: flex;
+  flex-wrap: wrap;                /* passe à la ligne si besoin */
+  justify-content: center;        /* centre l'ensemble */
+  gap: 1rem 1.25rem;              /* espace entre les pastilles */
+  padding: 0;
+  margin: 2rem 0 0;
+  list-style: none;
+}
+
+.pill{
+  display: flex;
+  align-items: flex-start;
+  gap: .65rem;
+  background: #fff;
+  color: #1f2937;
+  padding: .9rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+
+  /* dimensions “safe” pour éviter que le texte ne déborde */
+  flex: 1 1 260px;                /* largeur cible */
+  max-width: 300px;               /* évite les pastilles trop longues */
+  box-sizing: border-box;
+}
+
+.pill-icon{
+  font-size: 1.15rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.pill-text{
+  font-size: .95rem;
+  line-height: 1.4;
+  white-space: normal;            /* autorise les retours à la ligne */
+  overflow-wrap: anywhere;        /* casse si un mot est trop long */
+  word-break: break-word;         /* filets de sécurité */
+}
+
+.pill-text b{
+  display: block;
+  font-size: 1rem;
+  color: #111827;
+  margin-bottom: .15rem;
+}
+
+/* un peu plus confort sur grands écrans */
+@media (min-width: 1024px){
+  .pill{ flex-basis: 270px; max-width: 320px; }
+}
 
 
