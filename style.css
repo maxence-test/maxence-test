@@ -192,4 +192,68 @@ input:focus, select:focus, textarea:focus {
   background: linear-gradient(to right, white 0%, rgba(255,255,255,0.6) 60%, transparent 100%);
   pointer-events: none;
 }
+/* ===== HERO — correctif final : pas de clip, grid 2 colonnes, image = hauteur du texte ===== */
+.hero-blend{
+  display: grid;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr); /* texte | image */
+  align-items: stretch;  /* la colonne image prend la même hauteur que le texte */
+  gap: 2rem;
+  min-height: clamp(420px, 60vh, 640px);
+}
+
+.hero-blend__content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-blend__media{
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  clip-path: none !important;   /* annule le clip-path de l’ancienne version */
+}
+
+.hero-blend__img{
+  position: relative; z-index: 1;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 60% center;
+  border-radius: 0;             /* évite le double arrondi via img { border-radius } */
+  display: block;
+}
+
+/* Dégradé par-dessus l'image, côté texte */
+.hero-blend__fade{
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to right,
+    #fff 0%,
+    rgba(255,255,255,.88) 22%,
+    rgba(255,255,255,.55) 40%,
+    rgba(255,255,255,0) 65%
+  );
+}
+
+/* Ombre douce optionnelle sous l'image (peut être retirée si tu veux) */
+.hero-blend__shadow{
+  position: absolute;
+  left: 25%; right: 0; bottom: -10px; height: 60px;
+  filter: blur(22px);
+  background: rgba(0,0,0,.08);
+  z-index: 1;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+/* Responsive : pile correctement sur mobile */
+@media (max-width: 768px){
+  .hero-blend{
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
 
