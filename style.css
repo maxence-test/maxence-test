@@ -256,4 +256,42 @@ input:focus, select:focus, textarea:focus {
     min-height: auto;
   }
 }
+/* --- Pastilles de réassurance horizontales --- */
+.reassurance-pills{
+  display:flex;
+  flex-wrap:wrap;           /* passe à la ligne si manque de place */
+  gap:.75rem 1rem;          /* space entre pastilles */
+  align-items:center;
+  padding:0;
+  margin:2rem 0;
+  list-style:none;
+}
+
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  background:#059669;       /* emerald-600 */
+  color:#fff;
+  padding:.6rem .9rem;
+  border-radius:9999px;     /* pastille */
+  box-shadow:0 8px 24px rgba(5,150,105,.15);
+  border:1px solid rgba(255,255,255,.18);
+  white-space:nowrap;       /* évite les retours moches dans la pastille */
+}
+
+.pill-icon{                   /* taille uniforme des pictos */
+  line-height:1;
+  font-size:1rem;
+}
+
+.pill-text{
+  font-size:.95rem;
+}
+
+/* Pastilles un peu plus aérées sur desktop */
+@media (min-width: 1024px){
+  .pill{ padding:.7rem 1rem; }
+  .pill-text{ font-size:1rem; }
+}
 
