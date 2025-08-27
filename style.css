@@ -54,3 +54,105 @@ input:focus, select:focus, textarea:focus {
   object-fit: cover;
   border-radius: 0 !important; /* bas bien carré malgré img { border-radius } global */
 }
+/* ===== HERO BLEND (image à droite + fondu blanc) ===== */
+.hero-blend{
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  min-height: clamp(420px, 70vh, 640px);
+  padding-top: clamp(2rem, 4vh, 4rem);
+  padding-bottom: clamp(2rem, 4vh, 4rem);
+}
+
+/* Bloc texte à gauche */
+.hero-blend__content{
+  position: relative;
+  z-index: 3;
+  max-width: 720px;
+}
+
+/* Calque image/fondu qui occupe la droite */
+.hero-blend__media{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  /* l’image n’occupe que la partie droite sur grands écrans */
+  clip-path: inset(0 0 0 min(45vw, 520px) round 0); /* coupe un peu à gauche */
+}
+
+/* Image */
+.hero-blend__img{
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: min(100%, 1400px);
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% center; /* centre légèrement à droite */
+  border-radius: 1.25rem;      /* coins doux comme la maquette */
+}
+
+/* Dégradé blanc qui part de la gauche vers l'image */
+.hero-blend__fade{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,.92) 14%,
+    rgba(255,255,255,.72) 24%,
+    rgba(255,255,255,.45) 36%,
+    rgba(255,255,255,.18) 48%,
+    rgba(255,255,255,0) 60%
+  );
+  z-index: 2;
+  border-radius: 1.25rem;
+}
+
+/* Ombre douce sous l'image (comme sur ton rendu) */
+.hero-blend__shadow{
+  position: absolute;
+  right: 0; left: 30%;
+  bottom: -10px; height: 60px;
+  filter: blur(22px);
+  background: rgba(0,0,0,0.08);
+  z-index: 1;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+}
+
+/* Layout desktop : texte colonne gauche, image calée à droite */
+@media (min-width: 1024px){
+  .hero-blend{
+    grid-template-columns: 1fr;
+  }
+  .hero-blend__content{
+    max-width: 640px;
+  }
+}
+
+/* Layout mobile : l'image passe en arrière-plan subtil */
+@media (max-width: 768px){
+  .hero-blend{
+    min-height: 560px;
+  }
+  .hero-blend__media{
+    clip-path: none;
+  }
+  .hero-blend__img{
+    width: 100%;
+    border-radius: 0;
+  }
+  .hero-blend__fade{
+    background: linear-gradient(
+      180deg,
+      rgba(255,255,255,1) 0%,
+      rgba(255,255,255,.8) 25%,
+      rgba(255,255,255,.35) 55%,
+      rgba(255,255,255,0) 80%
+    );
+    border-radius: 0;
+  }
+  .hero-blend__shadow{ display: none; }
+}
