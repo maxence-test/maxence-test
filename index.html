@@ -37,8 +37,10 @@
 
   <!-- Hero -->
 <header class="relative isolate">
-  <div class="hero-blend container mx-auto px-6 max-w-[1200px]">
-    <div class="grid md:grid-cols-2 gap-12 items-center">
+  <div class="container mx-auto px-6 max-w-[1200px]">
+
+    <!-- Hero grid : texte | image -->
+    <div class="hero-blend">
       <!-- Texte -->
       <div class="hero-blend__content">
         <h1 class="text-5xl md:text-7xl font-extrabold leading-tight text-gray-900">
@@ -52,49 +54,34 @@
         </p>
 
         <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#offres"
-             class="px-7 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-soft text-base md:text-lg">
+          <a href="#offres" class="px-7 py-4 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold shadow-soft text-base md:text-lg">
             Voir les packs
           </a>
-          <a href="#contact"
-             class="px-7 py-4 rounded-2xl border border-gray-300 hover:border-emerald-600 text-gray-800 font-semibold text-base md:text-lg">
+          <a href="#contact" class="px-7 py-4 rounded-2xl border border-gray-300 hover:border-emerald-600 text-gray-800 font-semibold text-base md:text-lg">
             Parler de mon objectif
           </a>
         </div>
       </div>
 
-      <!-- Image -->
+      <!-- Image à droite + dégradé côté texte -->
       <div class="hero-blend__media">
-        <img src="./images/accueil-montagne.webp" alt="Crêtes enneigées"
-             class="hero-blend__img" />
+        <img src="./images/accueil-montagne.webp" alt="Crêtes enneigées" class="hero-blend__img" />
         <div class="hero-blend__fade"></div>
         <div class="hero-blend__shadow"></div>
       </div>
     </div>
 
-    <!-- Réassurance : pastilles horizontales -->
-    <ul class="reassurance-pills mt-10 flex flex-wrap justify-center gap-4">
-      <li class="pill">
-        <span class="pill-icon">✅</span>
-        <span class="pill-text"><b>Bilan initial</b> — Physique · Technique · Matériel</span>
-      </li>
-      <li class="pill">
-        <span class="pill-icon">📈</span>
-        <span class="pill-text"><b>Suivi</b> — feedback hebdo via appli</span>
-      </li>
-      <li class="pill">
-        <span class="pill-icon">🗻</span>
-        <span class="pill-text"><b>Séances</b> — terrain ou distance</span>
-      </li>
-      <li class="pill">
-        <span class="pill-icon">🧭</span>
-        <span class="pill-text"><b>Sécurité</b> — théorie & gestion du risque</span>
-      </li>
+    <!-- Réassurance : pastilles sous le hero -->
+    <ul class="reassurance-pills mt-10 flex flex-wrap justify-center md:justify-start gap-4">
+      <li class="pill"><span class="pill-icon">✅</span><span class="pill-text"><b>Bilan initial</b> — Physique · Technique · Matériel</span></li>
+      <li class="pill"><span class="pill-icon">📈</span><span class="pill-text"><b>Suivi</b> — feedback hebdo via appli</span></li>
+      <li class="pill"><span class="pill-icon">🗻</span><span class="pill-text"><b>Séances</b> — terrain ou distance</span></li>
+      <li class="pill"><span class="pill-icon">🧭</span><span class="pill-text"><b>Sécurité</b> — théorie & gestion du risque</span></li>
     </ul>
+
   </div>
 </header>
 
- 
   
   
   <!-- Offres -->
