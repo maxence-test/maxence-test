@@ -295,3 +295,42 @@ input:focus, select:focus, textarea:focus {
   .pill-text{ font-size:1rem; }
 }
 
+/* Réassurance : style pastilles */
+.reassurance-pills {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: #fff;
+  color: #1f2937; /* gris foncé */
+  padding: 0.9rem 1.2rem;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb; /* gris clair */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  max-width: 220px; /* limite la largeur pour forcer le retour à la ligne */
+}
+
+.pill-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.pill-text {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.pill-text b {
+  display: block;
+  font-size: 1rem;
+  color: #111827; /* presque noir */
+  margin-bottom: 0.2rem;
+}
+
+
