@@ -1,0 +1,30 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "maxence-test.fr" }],
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.maxence-test.fr" }],
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/robots.txt",
+      "has": [{ "type": "host", "value": "maxence-test.fr" }],
+      "destination": "/robots-test.txt"
+    },
+    {
+      "source": "/robots.txt",
+      "has": [{ "type": "host", "value": "www.maxence-test.fr" }],
+      "destination": "/robots-test.txt"
+    }
+  ]
+}
