@@ -4,14 +4,16 @@
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "maxence-test.fr" }],
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Link", "value": "<https://www.peak-data-training.fr/>; rel=\"canonical\"" }
       ]
     },
     {
       "source": "/(.*)",
       "has": [{ "type": "host", "value": "www.maxence-test.fr" }],
       "headers": [
-        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" }
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow, noarchive" },
+        { "key": "Link", "value": "<https://www.peak-data-training.fr/>; rel=\"canonical\"" }
       ]
     }
   ],
